@@ -43,7 +43,8 @@ models.Product.belongsTo(models.Manufacturer, { as: 'manufacturer', foreignKey: 
 models.OptionGroup.hasMany(models.Option, { as: 'options', foreignKey: 'option_group_id' });
 models.Option.belongsTo(models.OptionGroup, { as: 'option_group', foreignKey: 'option_group_id', otherKey: 'id' });
 
-models.ProductOption.hasOne(models.Option, { as: 'option', foreignKey: 'id' });
+models.ProductOption.belongsTo(models.Option, { as: 'option', foreignKey: 'option_id', otherKey: 'id' });
+models.ProductOption.belongsTo(models.Product, { as: 'product', foreignKey: 'product_id', otherKey: 'id' });
 models.ProductOption.hasMany(models.ProductToWarehouse, { as: 'product_in_warehouse', foreignKey: 'product_option_id'});
 
 models.Warehouse.hasMany(models.ProductToWarehouse, { as: 'products_in_warehouse', foreignKey: 'warehouse_id' });
