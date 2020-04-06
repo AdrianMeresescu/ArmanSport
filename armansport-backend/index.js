@@ -31,4 +31,3 @@ app.use('/warehouses', warehouses);
 
 var categories = require('./routes/categories');
 app.use('/categories', categories);
-var test = null;
